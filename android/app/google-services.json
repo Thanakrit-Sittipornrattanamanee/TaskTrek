@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "872265600127",
+    "firebase_url": "https://planery-exclusive-demo-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "planery-exclusive-demo",
+    "storage_bucket": "planery-exclusive-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872265600127:android:f84ee199ae9edb99dfc34a",
+        "android_client_info": {
+          "package_name": "com.thanakrit.planery_exclusive_demo_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872265600127-9eo8td860bp0hf8l7p6065uc98m8urlt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA7Lqkymimp_wlR8umGFoco5ijA5IdsM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872265600127-9eo8td860bp0hf8l7p6065uc98m8urlt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872265600127-k2qqch10h2mmth15lk7u3o1j2ptebov1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.thanakrit.planery_exclusive_demo_v1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
