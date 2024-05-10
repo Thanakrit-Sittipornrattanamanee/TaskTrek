@@ -40,13 +40,13 @@ class _CalendarState extends State<Calendar> {
       body: Column(
         children: [
           TableCalendar(
-            focusedDay: selectedDay,
+            focusedDay: focusedDay,
             firstDay: DateTime(1990),
             lastDay: DateTime(2050),
             calendarFormat: format,
-            onFormatChanged: (CalendarFormat format) {
+            onFormatChanged: (CalendarFormat _format) {
               setState(() {
-                format = format;
+                format = _format;
               });
             },
             startingDayOfWeek: StartingDayOfWeek.sunday,
@@ -64,13 +64,13 @@ class _CalendarState extends State<Calendar> {
             calendarStyle: CalendarStyle(
               isTodayHighlighted: true,
               selectedDecoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xFFFECCA5), // Peachy Rose for selected day
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(5.0),
               ),
               selectedTextStyle: const TextStyle(color: Colors.white),
               todayDecoration: BoxDecoration(
-                color: Colors.purpleAccent,
+                color: Color(0xFFFD6842), // Marigold for today
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(5.0),
               ),
@@ -79,12 +79,13 @@ class _CalendarState extends State<Calendar> {
                 borderRadius: BorderRadius.circular(5.0),
               ),
               weekendDecoration: BoxDecoration(
+                color: Color(0xFFC1DFE3), // Clear Skies for weekends
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(5.0),
               ),
             ),
             headerStyle: HeaderStyle(
-              formatButtonVisible: true,
+              formatButtonVisible: false,
               titleCentered: true,
               formatButtonShowsNext: false,
               formatButtonDecoration: BoxDecoration(
@@ -97,23 +98,23 @@ class _CalendarState extends State<Calendar> {
             ),
           ),
           Expanded(
-  child: ListView(
-    children: _getEventsfromDay(selectedDay)
-        .map((Event event) => ListTile(
-            title: Container(
-              padding: EdgeInsets.all(8.0),  // ใส่ padding ภายในกล่อง
-              margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),  // ใส่ margin รอบกล่อง
-              decoration: BoxDecoration(
-                color: Colors.grey[200],  // กำหนดสีพื้นหลังของกล่อง
-                border: Border.all(color: Colors.blue),  // กำหนดขอบของกล่อง
-                borderRadius: BorderRadius.circular(5.0),  // กำหนดให้มุมของกล่องเป็นมน
-              ),
-              child: Text(event.title),
+            child: ListView(
+              children: _getEventsfromDay(selectedDay)
+                  .map((Event event) => ListTile(
+                        title: Container(
+                          padding: EdgeInsets.all(8.0),
+                          margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFFCF4EA), // Seashell for event container
+                            border: Border.all(color: Color(0xFF548749)), // English Ivy for border
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: Text(event.title, style: TextStyle(color: Color(0xFF548749))), // English Ivy for text
+                        ),
+                      ))
+                  .toList(),
             ),
-        ))
-        .toList(),
-  ),
-),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -155,8 +156,8 @@ class _CalendarState extends State<Calendar> {
         ),
         label: const Text("Add your Event ♥"),
         icon: const Icon(Icons.add),
+        backgroundColor: Color(0xFFBAB759), // Olive Green for FAB
       ),
-      
     );
   }
 }

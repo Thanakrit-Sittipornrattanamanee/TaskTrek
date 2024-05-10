@@ -63,17 +63,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const CircleAvatar(
               radius: 40,
               backgroundImage: NetworkImage(
-                  'https://i.pinimg.com/564x/57/5a/ec/575aece356aa78e3a67fd5d932d521ba.jpg'),
+                  'https://i.pinimg.com/564x/7f/c4/c6/7fc4c6ecc7738247aac61a60958429d4.jpg'),
             ),
             const SizedBox(height: 20),
-            itemProfile('Name', _nameController, CupertinoIcons.person),
-            itemProfile('Phone', _phoneController, CupertinoIcons.phone),
-            itemProfile('Bio', _addressController, CupertinoIcons.chat_bubble),
-            itemProfile('Email', _emailController, CupertinoIcons.mail),
+            itemProfile('Name', _nameController, CupertinoIcons.person, context),
+            itemProfile('Phone', _phoneController, CupertinoIcons.phone, context),
+            itemProfile('Bio', _addressController, CupertinoIcons.chat_bubble, context),
+            itemProfile('Email', _emailController, CupertinoIcons.mail, context),
             const SizedBox(height: 20),
             MaterialButton(
               onPressed: saveData,
-              color: const Color.fromARGB(255, 185, 131, 235),
+              color: Color(0xFFFECCA5), // Peachy Rose
               child: const Text(
                 'Save Changes',
                 style: TextStyle(
@@ -89,7 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => const LogIn()));
               },
-              color: Colors.black,
+              color: Color(0xFF548749), // English Ivy
               child: const Text(
                 'Logout',
                 style: TextStyle(
@@ -115,15 +115,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
 Widget itemProfile(
-    String title, TextEditingController controller, IconData iconData) {
+    String title, TextEditingController controller, IconData iconData, BuildContext context) {
   return Container(
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: Theme.of(context).scaffoldBackgroundColor, // Use the theme background color
       borderRadius: BorderRadius.circular(10),
       boxShadow: [
         BoxShadow(
           offset: const Offset(0, 5),
-          color: const Color.fromARGB(255, 199, 127, 236).withOpacity(.2),
+          color: Color(0xFFC1DFE3).withOpacity(.2), // Clear Skies for shadows
           spreadRadius: 2,
           blurRadius: 10,
         )
@@ -135,9 +135,10 @@ Widget itemProfile(
         controller: controller,
         decoration: InputDecoration(
           hintText: "Add your $title",
+          hintStyle: TextStyle(color: Colors.grey), // Subdued text color
         ),
       ),
-      leading: Icon(iconData),
+      leading: Icon(iconData, color: Color(0xFF548749)), // English Ivy for icons
       trailing: Icon(Icons.arrow_forward, color: Colors.grey.shade400),
     ),
   );
