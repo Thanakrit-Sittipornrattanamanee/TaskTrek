@@ -136,7 +136,7 @@ class _LogInState extends State<LogIn> {
                               borderRadius: BorderRadius.circular(30)),
                           child: Center(
                               child: Text(
-                            "Sign In",
+                            " Login",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22.0,

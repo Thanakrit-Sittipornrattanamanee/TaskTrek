@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:planery_exclusive_demo_v1/Login/login.dart';
 import 'firebase_options.dart';
+import 'Screen/Home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -57,7 +57,6 @@ class _SignUpState extends State<SignUp> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
-          
           children: [
             Image.asset(
                   "lib/assets/signup.jpg",
@@ -72,6 +71,30 @@ class _SignUpState extends State<SignUp> {
                 key: _formkey,
                 child: Column(
                   children: [
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 2.0, horizontal: 30.0),
+                      decoration: BoxDecoration(
+                          color: Color(0xFFedf0f8),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please Enter Username';
+                          }
+                          return null;
+                        },
+                        controller: namecontroller,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Username",
+                            hintStyle: TextStyle(
+                                color: Color(0xFFb2b7bf), fontSize: 18.0)),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30.0,
+                    ),
                     Container(
                       padding:
                           EdgeInsets.symmetric(vertical: 2.0, horizontal: 30.0),
@@ -154,9 +177,6 @@ class _SignUpState extends State<SignUp> {
             ),
             SizedBox(
               height: 40.0,
-            ),
-            SizedBox(
-              height: 30.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
